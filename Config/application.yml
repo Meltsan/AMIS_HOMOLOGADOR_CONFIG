@@ -1,3 +1,7 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8010/eureka/
 spring:
   datasource:
     password: dbpassword
@@ -30,10 +34,6 @@ path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
 prod: false
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8010/eureka/
 
   
 
