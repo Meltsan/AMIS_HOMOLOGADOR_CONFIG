@@ -30,6 +30,11 @@ path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
 prod: false
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
 
   
 
