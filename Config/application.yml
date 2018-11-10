@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    password: dbpassword
+    testWhileIdle: true
+    url: jdbc:mysql://127.0.0.1:3307/cargasdb?useSSL=false
+    username: dbuser
+    validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+    show-sql: 'false'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 200MB
+server:
+  port: 8181
+  servlet:
+    path: /homologador/api
+file:
+  container: /Users/luisarriaga/Documents/Meltsan/FileContainer/
+path:
+  services:
+    catalog: http://kubernetes.meltsan.us/v1/
+prod: false
+
+  
+
+
