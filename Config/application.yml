@@ -34,7 +34,7 @@ prod: false
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
+      defaultZone: http://localhost:8010/eureka/
 
   
 
