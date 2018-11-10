@@ -5,7 +5,9 @@ eureka:
       defaultZone: http://localhost:8010/eureka/
 #      defaultZone: http://localhost:8011/eureka/,http://localhost:8012/eureka/,http://localhost:8013/eureka/
 server:
-  port: ${PORT:${SERVER_PORT:0}}   # Select any available port if neither port nor server port are specified.
+  port: ${PORT:${SERVER_PORT:0}}   # Select any available port if neither port nor server port are specified
+  servlet:
+    path: /homologador/api
 spring:
   datasource:
     password: dbpassword
@@ -28,9 +30,6 @@ spring:
       enabled: true
       max-file-size: 200MB
       max-request-size: 200MB
-server:
-  servlet:
-    path: /homologador/api
 file:
   container: /Users/luisarriaga/Documents/Meltsan/FileContainer/
 path:
