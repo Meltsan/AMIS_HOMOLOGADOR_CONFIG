@@ -30,7 +30,6 @@ path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
 prod: false
----
 eureka:
   client:
     serviceUrl:
