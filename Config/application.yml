@@ -3,12 +3,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
-management:
-   context-path: /homologador/api
 server:
   port: ${PORT:${SERVER_PORT:0}}   # Select any available port if neither port nor server port are specified
-  servlet:
-    path: /homologador/api
 spring:
   datasource:
     password: dbpassword
