@@ -59,9 +59,9 @@ task buildImage(type: com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
     println "Name: '${repositoryName}'"
     dependsOn createDockerfile
     inputDir = createDockerfile.destFile.parentFile
-
+	def buildNumber = System.getenv('BUILD_NUMBER')
     println "Succes buildImage"
-    tag = "gcr.io/amis-homologador/${repositoryName}:${project.version}".toLowerCase()
+    tag = "gcr.io/amis-homologador/${repositoryName}:${buildNumber}".toLowerCase()
 }
 
 
