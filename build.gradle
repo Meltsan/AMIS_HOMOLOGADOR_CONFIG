@@ -50,7 +50,7 @@ task createDockerfile(type: com.bmuschko.gradle.docker.tasks.image.Dockerfile) {
     from 'openjdk:8u181-jre-slim-stretch'
     copyFile "homologador-cloud-config.jar", '/opt/homologador-cloud-config.jar'
     exposePort 8001
-    entryPoint 'java -Xmx2048k -Xmx512m -Xmx8g', '-jar', '/opt/homologador-cloud-config.jar'
+    entryPoint 'java',"-Djava.awt.headless=true", "-Xms2048m", "-Xmx2048m", '-jar', '/opt/homologador-cloud-config.jar'
 }
 
 task buildImage(type: com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
