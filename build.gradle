@@ -36,7 +36,7 @@ sourceCompatibility = 1.8
 
 
 ext {
-    springCloudVersion = 'Greenwich.M1'
+    springCloudVersion = 'Finchley.SR1'
 }
 
 bootJar {
