@@ -1,0 +1,37 @@
+# Items that apply to ALL profiles:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.23.248.182:8010/eureka/
+server:
+  port: 8181   # Select any available port if neither port nor server port are specified
+spring:
+  datasource:
+    password: root
+    testWhileIdle: true
+    url: jdbc:mysql://10.23.241.150:3306/cargasdb?useSSL=false
+    username: proxyuser
+    validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+    show-sql: 'false'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 200MB
+file:
+  container: /Users/luisarriaga/Documents/Meltsan/FileContainer/
+path:
+  services:
+    catalog: http://kubernetes.meltsan.us/v1/
+prod: true
+
+
