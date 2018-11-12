@@ -30,7 +30,7 @@ apply plugin: "jacoco"
 
 group = 'com.homologador.cloud.config'
 version = '0.0.1-SNAPSHOT'
-project.version = ${build.number}
+project.version = ${BUILD_NUMBER}
 sourceCompatibility = 1.8
 
 
