@@ -30,7 +30,7 @@ apply plugin: "jacoco"
 
 group = 'com.homologador.cloud.config'
 version = '0.0.1-SNAPSHOT'
-project.version = '1'
+project.version = {BUILD_NUMBER}
 sourceCompatibility = 1.8
 
 
@@ -49,7 +49,7 @@ task createDockerfile(type: com.bmuschko.gradle.docker.tasks.image.Dockerfile) {
     destFile = project.file('build/libs/Dockerfile')
     from 'openjdk:8u181-jre-slim-stretch'
     copyFile "homologador-cloud-config.jar", '/opt/homologador-cloud-config.jar'
-    exposePort 8181
+    exposePort 8001
     entryPoint 'java -Xmx2048k -Xmx512m -Xmx8g', '-jar', '/opt/homologador-cloud-config.jar'
 }
 
