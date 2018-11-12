@@ -7,6 +7,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath ("com.bmuschko:gradle-docker-plugin:3.6.2")
+        
     }
 }
 
@@ -14,9 +16,11 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.bmuschko.docker-remote-api'
 
 group = 'com.homologador.cloud.config'
 version = '0.0.1-SNAPSHOT'
+project.version = '1'
 sourceCompatibility = 1.8
 
 repositories {
@@ -28,6 +32,34 @@ repositories {
 ext {
     springCloudVersion = 'Greenwich.M1'
 }
+
+bootJar {
+    baseName = 'homologador-cloud-config'
+    version = ''
+}
+
+task createDockerfile(type: com.bmuschko.gradle.docker.tasks.image.Dockerfile) {
+
+    destFile = project.file('build/libs/Dockerfile')
+    from 'openjdk:8u181-jre-slim-stretch'
+    copyFile "homologador-cloud-config.jar", '/opt/homologador-cloud-config.jar'
+    exposePort 8181
+    entryPoint 'java -Xmx2048k -Xmx512m -Xmx8g', '-jar', '/opt/homologador-cloud-config.jar'
+}
+
+task buildImage(type: com.bmuschko.gradle.docker.tasks.image.DockerBuildImage) {
+    dependsOn 'build'
+    def repositoryName = project.name.replace(' ', '').toLowerCase()
+    println "Name: '${repositoryName}'"
+    dependsOn createDockerfile
+    inputDir = createDockerfile.destFile.parentFile
+
+    println "Succes buildImage"
+    tag = "gcr.io/amis-homologador/${repositoryName}:${project.version}".toLowerCase()
+}
+
+
+
 
 dependencies {
     implementation('org.springframework.cloud:spring-cloud-config-server')
