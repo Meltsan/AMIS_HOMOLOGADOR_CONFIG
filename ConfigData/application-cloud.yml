@@ -1,6 +1,8 @@
 # Items that apply to ALL profiles:
 eureka:
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://10.23.248.182:8010/eureka/
 server:
