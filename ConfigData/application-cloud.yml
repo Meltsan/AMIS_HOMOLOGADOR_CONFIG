@@ -4,7 +4,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://10.23.248.182:8010/eureka/
+      defaultZone: http://104.198.230.5:8010/eureka/
 server:
   port: ${PORT:${SERVER_PORT:0}}   # Select any available port if neither port nor server port are specified
 spring:
