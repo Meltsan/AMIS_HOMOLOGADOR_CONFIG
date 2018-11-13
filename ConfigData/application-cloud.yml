@@ -27,4 +27,4 @@ file:
 path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
-prod: false
+prod: true
