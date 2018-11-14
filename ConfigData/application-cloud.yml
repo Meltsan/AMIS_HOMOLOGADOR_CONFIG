@@ -3,6 +3,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://104.198.230.5:8010/eureka/
+  instance:
+    preferIpAddress: true
 server:
   port: 8181   # Select any available port if neither port nor server port are specified
 spring:
