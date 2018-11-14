@@ -1,4 +1,8 @@
-# Items that apply to ALL profiles:
+logging:
+  file: logs/application-debug.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
 eureka:
   client:
     serviceUrl:
@@ -35,3 +39,12 @@ path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
 prod: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
