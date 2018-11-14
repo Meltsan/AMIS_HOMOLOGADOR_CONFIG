@@ -3,10 +3,6 @@ logging:
   pattern:
     console: "%d %-5level %logger : %msg%n"
     file: "%d %-5level [%thread] %logger : %msg%n"
-  level:
-    org.springframework.web: ERROR
-    com.howtodoinjava: DEBUG
-    org.hibernate: ERROR
 eureka:
   client:
     serviceUrl:
@@ -50,7 +46,3 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-logging:
-    pattern:
-        console: %d{yyyy-MM-dd HH:mm:ss} - %msg%n
-        file: %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
