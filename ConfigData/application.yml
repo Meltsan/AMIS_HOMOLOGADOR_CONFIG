@@ -8,7 +8,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
 server:
-  port: 8181   # Select any available port if neither port nor server port are specified
+  port: 0   # Select any available port if neither port nor server port are specified
 spring:
   datasource:
     password: dbpassword
