@@ -15,6 +15,23 @@ pipeline {
 	            steps {
 	                sh './gradlew buildImage'
 	            }
-	        }   
+	        }
+	          stage('clean kubernate') {
+                    steps {
+                        sh 'gcloud container clusters get-credentials cloud-rnd --zone us-central1-a --project amis-homologador'
+                        sh 'kubectl delete deployments homologador-cloud-config'
+                       
+
+                    }
+                }
+        stage('deployKubernate') {
+            steps {
+                sh 'gcloud container clusters get-credentials cloud-rnd --zone us-central1-a --project amis-homologador'
+                sh 'kubectl get deployments'
+                sh "gcloud docker -- push gcr.io/amis-homologador/homologador-cloud-config:${env.BUILD_NUMBER}"
+                sh "kubectl run homologador-cloud-config --image=gcr.io/amis-homologador/homologador-cloud-config:${env.BUILD_NUMBER} --port=8181"
+
+            }
+        }   
         }
       }
