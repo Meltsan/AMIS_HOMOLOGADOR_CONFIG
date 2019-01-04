@@ -36,7 +36,7 @@ file:
 path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
-    validacion: http://localhost:51348/
+    validacion: http://localhost:51215/
     duplicados: http://localhost:50800/
 prod: false
 
