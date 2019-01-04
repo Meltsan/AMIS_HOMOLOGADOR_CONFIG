@@ -37,7 +37,7 @@ path:
   services:
     catalog: http://kubernetes.meltsan.us/v1/
     validacion: http://localhost:51215/
-    duplicados: http://localhost:50800/
+    duplicados: http://localhost:51763/
 prod: false
 
 management:
