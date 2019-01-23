@@ -19,7 +19,6 @@ pipeline {
 	          stage('clean kubernate') {
                     steps {
                         sh 'gcloud container clusters get-credentials cloud-rnd --zone us-central1-a --project amis-homologador'
-                        sh 'kubectl delete deployments homologador-cloud-config'
                        
 
                     }
