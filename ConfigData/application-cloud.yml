@@ -40,6 +40,7 @@ path:
     catalog: http://kubernetes.meltsan.us/v1/
     validacion: http://130.211.126.58:8181/
     duplicados: http://35.239.173.168:8181/
+    reporte: http://35.232.160.182:8181/
 prod: true
 
 management:
